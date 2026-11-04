@@ -1,6 +1,11 @@
 class View {
     constructor(){
+        this.homeContainer = document.querySelector(".home-container");
         this.mainContent = document.querySelector(".home-container__main-content");
+
+        this.homeContainer.addEventListener('click', function(){
+
+        });
     }
 
     showGameDisplay(titleToImagePathObject){
@@ -38,6 +43,11 @@ class View {
             gameCards = gameCards + currentGameCard;
         }
         return gameCards;
+    }
+
+    // ----- Controller Requests -----
+    bindRequestCommunicator(callbackFromController){
+        this.onRequest = callbackFromController;
     }
 }
 

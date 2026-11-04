@@ -2,9 +2,7 @@
 require('./index.css');
 const {GameCollection} = require('./model/GameCollection.js');
 const {View} = require('./view/View.js');
+const {Controller} = require('./controller/Controller.js');
 
-let currentGameCollection = new GameCollection();
-let currentView = new View();
-let titleToImageFilePaths = currentGameCollection.getTitleToImageFilePaths();
-
-currentView.showGameDisplay(titleToImageFilePaths);
+let currentController = new Controller();
+currentController.handleShowGameDisplay();
