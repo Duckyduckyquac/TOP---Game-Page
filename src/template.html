@@ -5,8 +5,8 @@
     </head>
     <body class="home-container">
         <header class="home-container__header">
-            <button id="menu-toggle" class="header__menu-toggle">
-                <img src="./assets/svgs/menu.svg" alt="menu-icon" class="icon menu-toggle__icon"/> 
+            <button id="menu-toggle" class="toggle-button header__toggle-button">
+                <img src="./assets/svgs/menu.svg" alt="menu-icon" class="icon toggle-button__icon"/> 
             </button>
 
             <div class="header__text-group">
@@ -15,17 +15,31 @@
             </div>
         </header>
 
-        <aside class="home-container__sidebar home-container__sidebar--hidden">
-            <label for="dark-mode-toggle">Toggle Light/Dark Mode</label>
-            <button id="dark-mode-toggle">
-                <img src="./assets/svgs/dark-mode-outline.svg" alt="dark-mode-outline-icon" class="icon">
-            </button>
+        <div class="home-container__backdrop home-container__backdrop--hidden">
 
-            <label for="show-developer-information-button">Credits to the Developer</label>
-            <button id="show-developer-information-button">
-                <img src="./assets/svgs/developer.svg" alt="developer-icon" class="icon">
-            </button>
+        </div>
+
+        <aside class="home-container__sidebar home-container__sidebar--hidden">
+            <div class="sidebar__button-wrapper">
+                <label for="dark-mode-toggle">Toggle Dark Mode</label>
+                <button id="dark-mode-toggle" class="toggle-button button-wrapper__toggle-button">
+                    <img src="./assets/svgs/dark-mode-outline.svg" alt="dark-mode-outline-icon" class="icon toggle-button__icon">
+                </button>
+            </div>
+
+            <div class="sidebar__button-wrapper">
+                <label for="show-developer-information-button">Credits to the Developer</label>
+                <button id="show-developer-information-button" class="toggle-button button-wrapper__toggle-button">
+                    <img src="./assets/svgs/developer.svg" alt="developer-icon" class="icon toggle-button__icon">
+                </button>
+            </div>
         </aside>
+
+        <div class="home-container__developer-credit home-container__developer-credit--hidden">
+            <h1>Acknowledgement</h1>
+            <p>This practice exercise was accomplished by Duckyduckyquac (Jacob)</p>
+            <button class="developer-credit__close-button"><span class="close-button__span">Close</span></button>
+        </div>
 
         <main class ="home-container__main-content">
             

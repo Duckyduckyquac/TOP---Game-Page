@@ -3,9 +3,25 @@ class View {
         this.homeContainer = document.querySelector(".home-container");
         this.mainContent = document.querySelector(".home-container__main-content");
 
-        this.homeContainer.addEventListener('click', function(){
+        this.homeContainer.addEventListener('click', function(event){
+            if(event.target.closest("#menu-toggle")){
+                event.preventDefault();
+                this.communicateMenuToggle(event);
+            }
+            else if(event.target.closest("#dark-mode-toggle")){
+                event.preventDefault();
+                this.communicateDarkModeToggle(event);
+            }
+            else if(event.target.closest("#show-developer-information-button")){
+                event.preventDefault();
+                this.communicateShowDeveloperInformationButton(event);
+            }
 
-        });
+            else if(event.target.closest(".developer-credit__close-button")){
+                event.preventDefault();
+                this.communicateCloseDeveloperInformationButton(event);
+            }
+        }.bind(this));
     }
 
     showGameDisplay(titleToImagePathObject){
@@ -45,9 +61,66 @@ class View {
         return gameCards;
     }
 
+    toggleMenu(event){
+        let homeContainer = event.target.closest('.home-container');
+        let sidebar = homeContainer.querySelector('.home-container__sidebar');
+        sidebar.classList.toggle("home-container__sidebar--hidden");
+    }
+
+    toggleDarkMode(event){
+        let homeContainer = event.target.closest('.home-container');
+        homeContainer.classList.toggle("home-container--light-mode");
+    }
+
+    showDeveloperInformation(event){
+        let homeContainer = event.target.closest(".home-container");
+        let backdrop = homeContainer.querySelector(".home-container__backdrop");
+        let developerCreditDialog = homeContainer.querySelector(".home-container__developer-credit");
+
+        backdrop.classList.toggle("home-container__backdrop--hidden");
+        developerCreditDialog.classList.toggle("home-container__developer-credit--hidden");
+    }
+
+    closeDeveloperInformation(event){
+        let homeContainer = event.target.closest(".home-container");
+        let backdrop = homeContainer.querySelector(".home-container__backdrop");
+        let developerCreditDialog = homeContainer.querySelector(".home-container__developer-credit");
+
+        backdrop.classList.toggle("home-container__backdrop--hidden");
+        developerCreditDialog.classList.toggle("home-container__developer-credit--hidden");
+    }
+
+    communicateMenuToggle(event){
+        let wrappedRequest = this.wrapRequest("menuToggle", [event]);
+        this.onRequest(wrappedRequest);
+    }
+
+    communicateDarkModeToggle(event){
+        let wrappedRequest = this.wrapRequest("darkModeToggle", [event]);
+        this.onRequest(wrappedRequest);
+    }
+
+    communicateShowDeveloperInformationButton(event){
+        let wrappedRequest = this.wrapRequest("showDeveloperInformationButton", [event]);
+        this.onRequest(wrappedRequest);
+    }
+    communicateCloseDeveloperInformationButton(event){
+        let wrappedRequest = this.wrapRequest("closeDeveloperInformationButton", [event]);
+        this.onRequest(wrappedRequest);
+    }
+
     // ----- Controller Requests -----
     bindRequestCommunicator(callbackFromController){
         this.onRequest = callbackFromController;
+    }
+
+    wrapRequest(request, parameters){
+        let wrappedRequest = {
+            "request": request,
+            "parameters": parameters
+        };
+
+        return wrappedRequest;
     }
 }
 
