@@ -192,6 +192,8 @@
     transition-property: transform;
     transition-duration: var(--duration-developer-credit-transition-duration);
     transition-timing-function: ease-in-out;
+    outline: 2px solid var(--color-accent);
+    border-radius: 1rem;
 }
 
 .developer-credit__close-button:hover{
@@ -291,6 +293,8 @@
     transition-property: transform;
     transition-duration: var(--duration-sidebar-transition-duration);
     transition-timing-function: ease-in-out;
+    outline: 2px solid var(--color-accent);
+    border-radius: 10px;
 }
 .toggle-button__icon{
     width: var(--width-icon-width);
