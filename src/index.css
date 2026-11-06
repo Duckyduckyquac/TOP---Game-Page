@@ -26,7 +26,7 @@
     --width-card-width: clamp(200px, 30%, 30rem);
     --width-card-image-width: 100%;
     --width-sidebar-width: clamp(18rem,26rem, 200px);
-    --width-developer-credit-width: clamp(18rem, 30rem, 50rem);
+    --width-developer-credit-width: clamp(18rem, 30rem, 30rem);
 
     --width-icon-width: 32px;
     --height-icon-height: 32px;
